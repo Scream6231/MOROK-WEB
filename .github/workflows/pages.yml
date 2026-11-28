@@ -22,7 +22,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify Web build
         run: |
-          for f in index.html index.js index.wasm index.pck; do test -s "demo/$f" || exit 1; done
+          test -s demo/index.html
+          for f in index.html index.js index.wasm index.pck; do test -s "demo/alpha-v0.1-web1/$f" || exit 1; done
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
